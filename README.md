@@ -1,6 +1,10 @@
 # about_us
 - 👋 Hi, I’m martin-b-07e5  --  B. Martín
-- 👋 Prueba de branch de   Paz Almirón Nicolás
+<<<<<<< Updated upstream
+- 👋 Nicolas
+=======
+- 👋 Prueba de branch y push de Paz Almirón Nicolás
+>>>>>>> Stashed changes
 - 👋 Hi, I’m TomasGaAqBz  --  Tomas Aquino
 - 👋 Hi, I’m IBetaR  --  Ilich Betancourt
 - 👋 Hi, I’m Grimill22  --  Ojeda Adrián David
