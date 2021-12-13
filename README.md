@@ -6,7 +6,7 @@
 - 👋 Hi, I’m Grimill22  --  Ojeda Adrián David
 - 👋 Hi, I’m EduLoGo  --  Lopez Goitia Eduardo
 - 👋 Hi, I’m MigueProg  --  Peña Miguel Ángel
-- 👋 Hi, I’m xxx  --  Torres Facundo
+- 👋 Hi, I’m  Torres Facundo  -  TorresFacundoSeb
 - 👀 We’re interested in ...
 - 🌱 We’re currently learning/improving on... OOA + OOD + OOP + python + django + SQL + Version control using git + Agile project management with Scrum & kanban, ...
 - 💞️ We’re looking to collaborate on ... The completion of the final project on time.
