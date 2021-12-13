@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>{% block title %}{% endblock %}</title>
+    <link href="{% static " css/blog.css" %}" rel="stylesheet">
+</head>
+
+<body>
+    <div id="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+    <div id="sidebar">
+        <h2>My blog</h2>
+        <p>This is my blog.</p>
+    </div>
+</body>
+
+<!--
+{% load static %} tells Django to load the static template tags that are provided by the django.contrib.staticfiles application, which is contained in the INSTALLED_APPS setting.
+
+After loading them, you are able to use the {% static %} template tag throughout this template.
+
+With this template tag, you can include the static files, such as the blog.css file, which you will find in the code of this example
+under the static/ directory of the blog application.
+
+Copy the static/ directory into the same location as your project
+ to apply the CSS styles to the templates.
+-->
+
+</html>
