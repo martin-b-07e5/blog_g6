@@ -21,7 +21,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # path('blog/', include('blog.urls', namespace='blog')),
     # 👇🔥🔥🔥 No funciona!! 2021-12-13_13:00:06
-    path('apps/blog/', include('blog.urls', namespace='blog')),
+    # path('apps/blog/', include('blog.urls', namespace='blog')),
 ]
 
 """ The new URL pattern defined with include refers to the URL patterns defined in the blog application
