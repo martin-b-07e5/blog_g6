@@ -20,7 +20,7 @@ from django.contrib import admin
 urlpatterns = [
     path('admin/', admin.site.urls),
     # path('blog/', include('blog.urls', namespace='blog')),
-    # 👇🔥🔥🔥 No funciona!! 2021-12-13_13:00:06
+    # 👇🔥🔥🔥 Works only if the "blog" folder it's located on the root path!! 2021-12-13_21:17:38
     path('blog/', include('blog.urls', namespace='blog')),
 ]
 
