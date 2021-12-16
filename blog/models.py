@@ -3,7 +3,10 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 from django.urls import reverse
 
+# Create your models here.
+
 # add the custom manager:
+# devuelve los publicados
 class PublishedManager(models.Manager):
     def get_queryset(self):
         return super(PublishedManager,
@@ -19,6 +22,7 @@ class PublishedManager(models.Manager):
     👀 You override this method to include your custom filter in the final QuerySet.
 """
 
+# acá definimos las noticias a ser mostradas
 class Post(models.Model):
 
     STATUS_CHOICES = (
@@ -28,8 +32,7 @@ class Post(models.Model):
 
     title = models.CharField(max_length=250)
     slug = models.SlugField(max_length=250, unique_for_date='publish')
-    author = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name='blog_posts')
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='blog_posts')
     body = models.TextField()
 
     publish = models.DateTimeField(default=timezone.now)
