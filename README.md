@@ -8,11 +8,11 @@
 - 💞️ We're looking to collaborate on ...
 - 📫 How to reach us ... by our github username
 
-runserver
+# runserver
 $ python manage.py runserver
 
-change port
+# change port
 $ python manage.py runserver 8001
 
-Video
+# Video
 https://www.youtube.com/watch?v=2I709vaAu-k
