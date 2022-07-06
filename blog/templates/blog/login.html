@@ -1,0 +1,7 @@
+{% extends "blog/base.html" %} {% block title %} Ingrese a su Cuenta {% endblock %} {% load crispy_forms_tags %} {% block content %}
+<form method="post" class="from-group">
+    {% csrf_token %} {{form|crispy}}
+    <p>No tienes una cuenta? Registrate aqui: <a href="/register">Registro</a></p>
+    <button type="submit" class="btn btn-success">Iniciar Sesion</button>
+</form>
+{% endblock %}

@@ -1,43 +1,36 @@
-from django.urls import path
+from django.conf.urls import url
+from django.conf import settings
+from django.conf.urls.static import static
+from django.contrib.auth import views as auth_views
+from django.urls import path, include
 from . import views
-
-app_name = 'blog'
-
+from .views import filter_by_category_reverse,register
+from blog.views import CustomLoginView  
+from blog.forms import LoginForm
+from blog.views import about_us, filter_by_category, filter_by_category_reverse, filter_by_title, filter_by_title_reverse, filter_by_publish, filter_by_publish_reverse,filter_by_number_of_comments
 urlpatterns = [
-    # post views
     path('', views.post_list, name='post_list'),
-    path('<int:year>/<int:month>/<int:day>/<slug:post>/',
-         views.post_detail,
-         name='post_detail'),
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('post/<int:pk>/', views.post_detail, name='post_detail'),
+    path('post/new/', views.post_new, name='post_new'),
+    path('post/<int:pk>/edit/', views.post_edit, name='post_edit'),
+    url(r'^post/(?P<pk>\d+)/comment/$', views.add_comment_to_post, name='add_comment_to_post'),
+    url(r'^comment/(?P<pk>\d+)/approve/$', views.comment_approve, name='comment_approve'),
+    url(r'^comment/(?P<pk>\d+)/remove/$', views.comment_remove, name='comment_remove'),
+    path('post/<pk>/remove/', views.post_remove, name='post_remove'),
+    path('register/', register, name="register"),
+    path('login/', CustomLoginView.as_view(redirect_authenticated_user=True, template_name='blog/login.html',authentication_form=LoginForm), name='login'),
+    path('logout/', auth_views.LogoutView.as_view(template_name='blog/logout.html'), name='logout'),
+    path('about_us/',about_us, name='about_us'),
+    path('filter_by_category/', filter_by_category, name='filter_by_category'),
+    path('filter_by_category_reverse/', filter_by_category_reverse, name='filter_by_category_reverse'),
+    path('filter_by_title/', filter_by_title, name='filter_by_title'),
+    path('filter_by_title_reverse/', filter_by_title_reverse, name='filter_by_title_reverse'),
+    path('filter_by_publish/', filter_by_publish, name='filter_by_publish'),
+    path('filter_by_publish_reverse/', filter_by_publish_reverse, name='filter_by_publish_reverse'),
+    path('filter_by_number_of_comments/', filter_by_number_of_comments, name='filter_by_number_of_comments'),
+
 ]
-
-""" 👀 In the preceding code, you define an application namespace with the app_name variable.
-    👀 This allows you to organize URLs by application and use the name when referring to them.
-
-    👀 👀 You define two different patterns using the path() function.
-      The first URL pattern doesn't take any arguments and is mapped to the post_list view.
-      The second pattern takes the following four arguments and is mapped to the post_detail view:
-        - year: Requires an integer
-        - month: Requires an integer
-        - day: Requires an integer
-        - post: Can be composed of words and hyphens
-
-    You use angle brackets to capture the values from the URL.
-    Any value specified in the URL pattern as <parameter> is captured as a string.
-
-    You use path converters,
-     such as <int:year>, to specifically match and return an integer 
-     and <slug:post> to specifically match a slug.
-
-    You can see all path converters provided by Django
-    at https://docs.djangoproject.com/en/3.0/topics/http/urls/#path-
-    converters.
-
-
-    If using path() and converters isn't sufficient for you, you can use re_path() instead to define complex URL patterns with Python regular expressions.
-    You can learn more about defining URL patterns with regular expressions at https://docs.djangoproject.com/en/3.0/ref/urls/#django.urls.re_path.
-    If you haven't worked with regular expressions before,
-     you might want to take a look at the Regular Expression HOWTO located at https://docs.python.org/3/howto/regex.html first.
-"""
-
-# 💡 Creating a urls.py file for each application is the best way to make your applications reusable by other projects.
+  
+if settings.DEBUG: # new
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
