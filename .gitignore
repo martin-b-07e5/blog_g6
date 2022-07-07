@@ -1,6 +1,13 @@
 # Created by https://www.toptal.com/developers/gitignore/api/django
 # Edit at https://www.toptal.com/developers/gitignore?templates=django
 
+# files
+.directory
+.gitignore
+.github--icon.png
+.Apps-Java-icon.png
+.django.ico
+
 ### Django ###
 *.log
 *.pot
